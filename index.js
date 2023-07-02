@@ -1,16 +1,14 @@
+const express = require('express');
 const bodyParser = require('body-parser');
-const express=require('express');
+const mongoPractice = require('./mongo');
 
-const app=express();
-const PORT=5555;
+
+const app = express();
 
 app.use(bodyParser.json());
-app.post('/products');
+
+app.post('/products', mongoPractice.createProduct);
+
 app.get('/products');
 
-
-
-
-app.listen(PORT,()=>{
-    console.log(`Server Started at :${PORT}`)
-})
+app.listen(5555);
